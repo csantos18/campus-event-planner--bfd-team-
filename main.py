@@ -100,3 +100,17 @@ def deletarEvento(listaEvento, id):
 
 # listarEventos(eventos)
 # # Deve mostrar: ID 2 e ID 3 (não ID 1 e 2)
+
+# EstudandeB
+listarEventos = []
+proximo_id = 1
+
+def displayMenu ():
+    print("\n=== Menu ===")
+    print("1 - Adicionar evento (Estdante A)")
+    print("2 - Visualizar todos os eventos")
+    print("3 - Filtra eventos por categoria")
+    print("4 - Marca eventos como participado")
+    print("5 - Gerar relatório")
+    print("0 - Sair")
+    
