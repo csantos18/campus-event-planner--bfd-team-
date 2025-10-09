@@ -133,3 +133,31 @@ def marcarEventoAtendido(lista, id):
             e["atendido"] = True
             return True
     return False
+
+def gerarRelatorio(lista):
+    # :bar_chart: Gera e imprime um relatório estatistico com base na lista de eventos.
+    # :white_check_mark:  Calcula o total de eventos, quantos foram atendidos, a porcentagem de participação.
+    # :card_index_dividers: Agrupa os eventos por categoria e exibe os dados formatados no console.
+
+ def gerarRelatorio(lista):
+    total = len(lista)
+    atendido = sum(1 for e in lista if e.get('atendido'))
+
+    por_categoria = {}
+    for e in lista:
+        cat = e.get('categoria', 'Outros')
+        por_categoria[cat] = por_categoria.get(cat, 0) + 1
+
+        pctParticipados = (atendidos / total * 100) if total > 0 else 0
+
+        print("=== Relatório de Eventos ===")
+        print(f"Total de eventos: {total}")
+        print(f"Participados: {atendido}")
+        print(f"Participação: {pctParticipados:.2f}%")
+        print("Eventos por categoria:")
+        for cat, count in por_categoria.items():
+            print(f" - {cat}: {count}")
+            print("---------------------------")
+            
+
+    porcentagem_participacao = (atendido / total * 100) if total > 0 else 0
