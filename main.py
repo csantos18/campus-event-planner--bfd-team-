@@ -389,3 +389,26 @@ def adicionarEventoEstudanteA(lista):
     lista.append(novo)
     print(f"Evento '{titulo}' adicionado com sucesso com ID {proximo_id}.")
     proximo_id += 1
+
+def main():
+    # 🚀 Função principal que inicia o Gerenciador de Eventos.
+    # 🧭 Executa o menu em loop contínuo, permitindo ao usuário interagir com o sistema.
+    # 📝 Opção 1: Adiciona um novo evento à lista.
+    # 📋 Opção 2: Exibe todos os eventos cadastrados com detalhes formatados.
+    
+    print("Bem-vindo ao Gerenciador de Eventos (Python)")
+    
+    while True:
+        displayMenu()  # 📌 Exibe o menu de opções
+        escolha = getEscolhaDoUsuario()  # 🔢 Lê a escolha do usuário
+
+        if escolha == 1:
+            adicionarEventoEstudanteA(listaEventos)  # 🆕 Adiciona novo evento
+
+        elif escolha == 2:
+            if not listaEventos:
+                print("Nenhum evento cadastrado.")  # 📭 Lista vazia
+            else:
+                print("--- Lista de Eventos ---")  # 📋 Exibe todos os eventos
+                for e in listaEventos:
+                    print(f"ID:{e['id']} | {e['titulo']} | {e['categoria']} | {e['data']} | Participado: {'Sim' if e['atendido'] else 'Não'}")
