@@ -173,3 +173,148 @@ def adicionarEventoEstudanteA(lista):
     proximo_id += 1
     
 
+# EstudanteB
+listarEventos = []
+proximo_id = 1
+
+def displayMenu():
+    print("\n=== Menu ===")
+    print("1 - Adicionar evento (Estudante A)")
+    print("2 - Visualizar todos os eventos")
+    print("3 - Filtrar eventos por categoria")
+    print("4 - Marcar eventos como participado")
+    print("5 - Gerar relatório")
+    print("0 - Sair")
+
+# 🔢 Solicita ao usuário uma opção numérica do menu
+def getEscolhaDoUsuario():
+    try:
+        return int(input("Escolha uma opção: "))
+    except ValueError:
+        return -1
+
+def filtrarEventosPorCategoria(lista, categoria):
+    # 🔍 Retorna uma lista contendo apenas os eventos cuja categoria (ignorando maiúsculas e minúsculas) corresponde à fornecida.
+    return [e for e in lista if e.get('categoria', '').lower() == categoria.lower()]
+
+def marcarEventoAtendido(lista, id):
+    # ✅ Marca como atendido o evento que possui o ID correspondente.
+    for e in lista:
+        if e.get("id") == id:
+            e["atendido"] = True
+            return True
+    return False
+
+def gerarRelatorio(lista):
+    # 📊 Gera e imprime um relatório estatístico com base na lista de eventos.
+    # ✅ Calcula o total de eventos, quantos foram atendidos e a porcentagem de participação.
+    # 🗂️ Agrupa os eventos por categoria e exibe os dados formatados no console.
+    total = len(lista)
+    atendido = sum(1 for e in lista if e.get('atendido'))
+
+    por_categoria = {}
+    for e in lista:
+        cat = e.get('categoria', 'Outros')
+        por_categoria[cat] = por_categoria.get(cat, 0) + 1
+
+    pctParticipados = (atendido / total * 100) if total > 0 else 0
+
+    print("=== Relatório de Eventos ===")
+    print(f"Total de eventos: {total}")
+    print(f"Participados: {atendido}")
+    print(f"Participação: {pctParticipados:.2f}%")
+    print("Eventos por categoria:")
+    for cat, count in por_categoria.items():
+        print(f" - {cat}: {count}")
+    print("---------------------------")
+
+def adicionarEventoEstudanteA(lista):
+    # 📝 Solicita ao usuário os dados de um novo evento (título, categoria e data).
+    # 🆔 Gera um ID único usando a variável global 'proximo_id' e adiciona o evento à lista.
+    # ✅ Exibe uma mensagem de confirmação e incrementa o ID para o próximo evento.
+    global proximo_id
+    titulo = input("Título do evento: ").strip()
+    categoria = input("Categoria (Acadêmico, Social, Esportes): ").strip()
+    data = input("Data (AAAA-MM-DD): ").strip()
+    novo = {
+        "id": proximo_id,
+        "titulo": titulo,
+        "categoria": categoria,
+        "data": data,
+        "atendido": False
+    }
+    lista.append(novo)
+    print(f"Evento '{titulo}' adicionado com sucesso com ID {proximo_id}.")
+    proximo_id += 1
+# EstudanteB
+listarEventos = []
+proximo_id = 1
+
+def displayMenu():
+    print("\n=== Menu ===")
+    print("1 - Adicionar evento (Estudante A)")
+    print("2 - Visualizar todos os eventos")
+    print("3 - Filtrar eventos por categoria")
+    print("4 - Marcar eventos como participado")
+    print("5 - Gerar relatório")
+    print("0 - Sair")
+
+# 🔢 Solicita ao usuário uma opção numérica do menu
+def getEscolhaDoUsuario():
+    try:
+        return int(input("Escolha uma opção: "))
+    except ValueError:
+        return -1
+
+def filtrarEventosPorCategoria(lista, categoria):
+    # 🔍 Retorna eventos cuja categoria corresponde à fornecida (ignorando maiúsculas/minúsculas)
+    return [e for e in lista if e.get('categoria', '').lower() == categoria.lower()]
+
+def marcarEventoAtendido(lista, id):
+    # ✅ Marca como atendido o evento com o ID correspondente
+    for e in lista:
+        if e.get("id") == id:
+            e["atendido"] = True
+            return True
+    return False
+
+def gerarRelatorio(lista):
+    # 📊 Gera e imprime relatório com estatísticas dos eventos
+    # 🗂️ Agrupa por categoria e calcula participação
+    total = len(lista)
+    atendido = sum(1 for e in lista if e.get('atendido'))
+
+    por_categoria = {}
+    for e in lista:
+        cat = e.get('categoria', 'Outros')
+        por_categoria[cat] = por_categoria.get(cat, 0) + 1
+
+    pctParticipados = (atendido / total * 100) if total > 0 else 0
+
+    print("=== Relatório de Eventos ===")
+    print(f"Total de eventos: {total}")
+    print(f"Participados: {atendido}")
+    print(f"Participação: {pctParticipados:.2f}%")
+    print("Eventos por categoria:")
+    for cat, count in por_categoria.items():
+        print(f" - {cat}: {count}")
+    print("---------------------------")
+
+def adicionarEventoEstudanteA(lista):
+    # 📝 Solicita dados de um novo evento
+    # 🆔 Gera ID único e adiciona à lista
+    # ✅ Exibe confirmação e incrementa o ID
+    global proximo_id
+    titulo = input("Título do evento: ").strip()
+    categoria = input("Categoria (Acadêmico, Social, Esportes): ").strip()
+    data = input("Data (AAAA-MM-DD): ").strip()
+    novo = {
+        "id": proximo_id,
+        "titulo": titulo,
+        "categoria": categoria,
+        "data": data,
+        "atendido": False
+    }
+    lista.append(novo)
+    print(f"Evento '{titulo}' adicionado com sucesso com ID {proximo_id}.")
+    proximo_id += 1
