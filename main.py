@@ -114,3 +114,10 @@ def displayMenu ():
     print("5 - Gerar relatório")
     print("0 - Sair")
     
+    #🔢 Solicita ao usuário uma opção numérica do menu
+def getEscolhaDoUsuario():
+    try:
+        return int(input("Escolha uma opção"))
+    except ValueError:
+        return -1
+    
