@@ -148,7 +148,7 @@ def gerarRelatorio(lista):
         cat = e.get('categoria', 'Outros')
         por_categoria[cat] = por_categoria.get(cat, 0) + 1
 
-        pctParticipados = (atendidos / total * 100) if total > 0 else 0
+        pctParticipados = (atendido / total * 100) if total > 0 else 0
 
         print("=== Relatório de Eventos ===")
         print(f"Total de eventos: {total}")
@@ -158,6 +158,18 @@ def gerarRelatorio(lista):
         for cat, count in por_categoria.items():
             print(f" - {cat}: {count}")
             print("---------------------------")
-            
 
-    porcentagem_participacao = (atendido / total * 100) if total > 0 else 0
+def adicionarEventoEstudanteA(lista):
+    # 📝 Solicita ao usuário os dados de um novo evento (titulo, categoria e data).
+    # 🆔 Gera um ID único usando a variável global 'proximo_id' e adiciona o evento à lista.
+    # ✅ Exibe uma mensagem de confirmação. e incrementa o ID para o próximo evento.
+    global proximo_id
+    titulo = input("Titulo do evento:").strip()
+    categoria = input("Categoria (Acadêmico, Social, Esportes):").strip()
+    data = input("Data (AAAA-MM-DD):").strip()
+    novo = {"id": proximo_id, "titulo": titulo, "categoria": categoria, "data": data, "atendido": False}
+    lista.append(novo)
+    print(f"Evento '{titulo}' adicionado com sucesso com ID {proximo_id}.")
+    proximo_id += 1
+    
+
