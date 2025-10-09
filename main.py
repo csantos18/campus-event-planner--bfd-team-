@@ -121,3 +121,15 @@ def getEscolhaDoUsuario():
     except ValueError:
         return -1
     
+def filtrarEventosPorCategoria(lista, categoria):
+    #Retorna uma lista contendo apenas os eventos cuja categoria (ignorando maiúsculas e minúsculas) corresponde à categoria fornecida. Usa compreensão de lista para filtrar de forma eficiente.
+    return [ e for e in lista if e.get('categoria', '').lower() == categoria.lower()]
+
+def marcarEventoAtendido(lista, id):
+    # Percorre a lista de eventos e marca como atendido o evento que possui o ID correspondente.
+    # Retorno True se o evento foi encontrado e marcado; caso contrário, retorne False.
+    for e in lista:
+        if e.get("id") == id:
+            e["atendido"] = True
+            return True
+    return False
