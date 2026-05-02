@@ -1,21 +1,44 @@
-# campus-event-planner--bfd-team-
+# Campus Event Planner
 
-O intuito desse repositório é construir um planejador de eventos do IFConecta (evento sistêmico do IFB). A aplicação irá se basear no console e permitirá os usuários gerenciar eventos ocorrendo no IFB.
+Aplicação em Python para planejamento de eventos acadêmicos do IFConecta, evento sistêmico do IFB.
 
----
+O projeto funciona via console e permite organizar eventos, acompanhar programações e consultar informações por categoria ou data.
 
 ## Funcionalidades
 
-- Adicionar eventos.
+- Cadastrar eventos.
 - Visualizar eventos futuros.
-- Filtrar por categoria ou data.
-- Marcar eventos como participado.
-- Gerar um relatório simples
+- Filtrar eventos por categoria.
+- Filtrar eventos por data.
+- Marcar eventos como participados.
+- Gerar relatório simples.
 
+## Tecnologias
 
-## Estudantes
+- Python 3
+- Execução via terminal
 
-|          Nome Completo          | 
-|---------------------------------|
-| Isaac Lucas Souza Bezerra       |
-| Carlos Eduardo Neves do Santos  | 
+## Como Rodar
+
+```bash
+python main.py
+```
+
+## Estrutura
+
+```text
+.
+├── main.py
+└── README.md
+```
+
+## Integrantes
+
+| Nome |
+| --- |
+| Isaac Lucas Souza Bezerra |
+| Carlos Eduardo Neves dos Santos |
+
+## Status
+
+Projeto acadêmico em desenvolvimento.
